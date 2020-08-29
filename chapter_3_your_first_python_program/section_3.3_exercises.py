@@ -1,5 +1,4 @@
-# Chapter 3 Review Exercises
-# Section 3.3: Create a Variable
+# 3.3 Create a Variable
 
 # 1) Using the interactive window display some text using print() .
 
@@ -12,7 +11,7 @@ var_1 = "This is a string literal."
 print(var_1)
 
 # 3) Repeat the first two excercises using the editor window.
-# Note to reader: Imagine this was done in an editor.
+# Note to reader: Imagine this was done in an editor. ;D
 
 print("Some text.")
 var_2 = "This is another string literal!"
