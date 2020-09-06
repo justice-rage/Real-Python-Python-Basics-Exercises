@@ -4,10 +4,28 @@
 # displaying a message to “try again” by catching the ValueError that 
 # is raised if the user did not enter an integer.
 # Once the user enters an integer, the program should display the number
-#  back to the user and end without crashing.
+# back to the user and end without crashing.
+
+while True:
+    try:
+        integer_input = int(input("Enter integer: "))
+        print(integer_input)
+        break
+    except ValueError:
+        print("Try again.")
+
 
 # 2) Write a program that asks the user to input a string and an integer n. 
 # Then display the character at index n in the string.
 # Use error handling to make sure the program doesn’t crash if the user does
 # not enter an integer or the index is out of bounds. The program should 
 # display a different message depending on what error occurs.
+
+# blue print
+"""while True:
+    try:
+        integer_input = int(input("Enter integer: "))
+        print(integer_input)
+        break
+    except ValueError:
+        print("Try again.")"""
