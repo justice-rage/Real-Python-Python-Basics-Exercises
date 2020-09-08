@@ -21,11 +21,15 @@ while True:
 # not enter an integer or the index is out of bounds. The program should 
 # display a different message depending on what error occurs.
 
-# blue print
-"""while True:
+string_var = str(input("Enter string: "))
+
+while True:    
     try:
-        integer_input = int(input("Enter integer: "))
-        print(integer_input)
+        index = int(input("Enter integer: "))
+        print(string_var[index])
         break
     except ValueError:
-        print("Try again.")"""
+        print("Error. Enter integer below. ")
+    except IndexError:
+        print("Error. Index out of bounds. Enter another below. ")
+
