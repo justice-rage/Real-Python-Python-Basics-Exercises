@@ -1,5 +1,8 @@
 # 8.8 Challenge: Simulate a Coin Toss Experiment
 
+# Multiple solutions known, however, wanted to reduce line number by 
+# utilizing statistics library, .append, and an empty list as a challenge.
+
 """ Suppose you flip a fair coin repeatedly until it lands on both heads 
 and tails at least once each. In other words, after the first flip, you 
 continue to flip the coin until it lands on something different. Doing this
