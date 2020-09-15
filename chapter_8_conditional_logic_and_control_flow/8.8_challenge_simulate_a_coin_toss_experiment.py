@@ -25,10 +25,9 @@ def coin_flip():
     else:
         return "Tails"
 
+flips = 0
 ambos_sequence_tracker = [] # List logging number of flips it takes for both
                             # 'Heads' and 'Tails' to appear.
-
-flips = 0
 
 for trial in range(10_000):
     # Starts flips
@@ -43,6 +42,7 @@ for trial in range(10_000):
     ambos_sequence_tracker.append(flips)
     flips = 1 # Resets flips to 1 to ensure list doesn't infinitely add flips
 
-print(str(mean(ambos_sequence_tracker)))
+print(str(mean(ambos_sequence_tracker))) # mean function derives average 
+                                         # from ambos_sequence_tracker
 
 
