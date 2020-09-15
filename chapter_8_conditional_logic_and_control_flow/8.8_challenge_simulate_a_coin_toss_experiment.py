@@ -15,36 +15,32 @@ import random
 from statistics import mean
 
 def coin_flip():
-    """Randomly return 'heads' or 'tails'."""
-    if random.randint(0, 1) == 0:
-        return "heads"
+    result = random.randint(1, 2)
+    if result == 1:
+        return "Heads"
     else:
-        return "tails"
+        return "Tails"
 
+# ERROR: ambos_sequence_tracker appends correct variable, however, it adds 
+# each flip instead of starting from 0. This behavior results in large numbers.
+# List should be starting from 0 every round.
+ambos_sequence_tracker = [] # List logging number of flips it takes for both
+                            # 'Heads' and 'Tails' to appear.
 
 flips = 0
-num_trials = 10_000
 
-# empty list utilized for appending flips
-avg_per_trial = []
-
-for trial in range(num_trials):
-    # Flip the coin once and increment the flips tally by 1
+for trial in range(10_000):
+    # Begins initial flips
     first_flip = coin_flip()
     flips = flips + 1
-    # Continue flipping the coin and updating the tally until
-    # a different result is returned by coin_flips()
+    # Continues flipping coin and updates tally until different
+    # result is returned by coin_flips() .
     while coin_flip() == first_flip:
         flips = flips + 1
-    # Increment the flip tally once more to account for the
-    # final flip with a different result
-    flips = flips + 1
+    # Increment flip tally once more to account for the final flip
+    # with different result.
+    ambos_sequence_tracker.append(flips)
 
-avg_per_trial.append(flips) # appends flips to
-
-avg_flips_per_trial = mean(avg_per_trial) # Returns correct output without decimal
-print(f"Average number of flips per trial: {avg_flips_per_trial}.")
-
-
+print(str(mean(ambos_sequence_tracker)))
 
 
