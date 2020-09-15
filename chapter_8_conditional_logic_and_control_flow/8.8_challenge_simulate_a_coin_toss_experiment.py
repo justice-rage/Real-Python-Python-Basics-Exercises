@@ -21,7 +21,7 @@ def coin_flip():
     else:
         return "Tails"
 
-# ERROR: ambos_sequence_tracker appends correct variable, however, it adds 
+# ERROR Destination: ambos_sequence_tracker appends correct variable, however, it adds 
 # each flip instead of starting from 0. This behavior results in large numbers.
 # List should be starting from 0 every round.
 ambos_sequence_tracker = [] # List logging number of flips it takes for both
@@ -35,8 +35,11 @@ for trial in range(10_000):
     flips = flips + 1
     # Continues flipping coin and updates tally until different
     # result is returned by coin_flips() .
-    while coin_flip() == first_flip:
+
+    # Error Origin: Must return flips to 0 without impeding count
+    while coin_flip() == first_flip: 
         flips = flips + 1
+    
     # Increment flip tally once more to account for the final flip
     # with different result.
     ambos_sequence_tracker.append(flips)
