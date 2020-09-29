@@ -22,10 +22,10 @@ the total number of students, the total tuition, the mean and median of the
 number of students, and the mean and median tuition values.
 Finally, output all values, and format the output so that it looks like this:
 
-******************************
+*****************************
 Total students: 77,285 Total tuition: $271,905 Student mean: 11,040.71 
 Student median: 10,566 Tuition mean: $38,843.57 Tuition median: $ 39,849
-****************************** """
+***************************** """
 
 # Imported mean and median functions instead of hand creating
 from statistics import mean, median
