@@ -1,4 +1,4 @@
-# Challenge 9.4 List of Lists
+# 9.4 Challenge: List of Lists
 
 # Write a program that contains the following lists of lists:
 # universities = [    ['California Institute of Technology', 2175, 37704],
