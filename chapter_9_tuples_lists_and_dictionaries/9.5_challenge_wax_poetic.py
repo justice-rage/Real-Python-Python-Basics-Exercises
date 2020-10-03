@@ -33,55 +33,93 @@ Every time your program runs, it should generate a new poem. """
 
 import random
 
-noun = ["fossil", "horse", "aardvark", "judge", "chef", "mango", "extrovert", "gorilla"]
-verb = ["kicks", "jingles", "bounces", "slurps", "meows", "explodes", "curdles"]
-adj = ["furry", "balding", "incredulous", "fragrant", "exuberant", "glistening"] # adjectives
-prep = ["against", "after", "into", "beneath", "upon", "for", "in", "like", "over", "within"] # prepositions
-adv = ["curiously", "extravagantly", "tantalizingly", "furiously", "sensuously"] # adverbs
-article = ["a", "an"]
+noun = [
+    "fossil",
+    "horse",
+    "aardvark",
+    "judge",
+    "chef",
+    "mango",
+    "extrovert",
+    "gorilla",
+]
+verb = [
+    "kicks",
+    "jingles",
+    "bounces",
+    "slurps",
+    "meows",
+    "explodes",
+    "curdles",
+]
+adjective = [
+    "furry",
+    "balding",
+    "incredulous",
+    "fragrant",
+    "exuberant",
+    "glistening",
+]
+preposition = [
+    "against",
+    "after",
+    "into",
+    "beneath",
+    "upon",
+    "for",
+    "in",
+    "like",
+    "over",
+    "within",
+]
+adverb = [
+    "curiously",
+    "extravagantly",
+    "tantalizingly",
+    "furiously",
+    "sensuously",
+]
 
-def poem_creator():
-    """ Radnomly selects appropriate word types for poem construction. """
-    # Chooses 3 different nouns
-    noun1 = random.choice(noun)
-    noun2 = random.choice(noun)
-    noun3 = random.choice(noun)
-    # Ensures different nouns are selected
-    while noun1 == noun2:
-        noun2 = random.choice(noun)
-    while noun3 == noun1 or noun2:
-        noun3 == random.choice(noun)
 
-    # Chooses 3 different verbs
-    verb1 = random.choice(verb)
-    verb2 = random.choice(verb)
-    verb3 = random.choice(verb)
-    # Ensures different verbs are selected
-    while verb1 == verb2:
-        verb2 = random.choice(verb)
-    while verb3 == verb1 or verb2:
-        verb3 == random.choice(verb)
+def make_poem():
+    """Create a randomly generated poem, returned as a multi-line string."""
+    # Pull three nouns randomly
+    n1 = random.choice(noun)
+    n2 = random.choice(noun)
+    n3 = random.choice(noun)
+    # Make sure that all the nouns are different
+    while n1 == n2:
+        n2 = random.choice(noun)
+    while n1 == n3 or n2 == n3:
+        n3 = random.choice(noun)
 
-     # Chooses 3 different adjectives
-    adj1 = random.choice(adj)
-    adj2 = random.choice(adj)
-    adj3 = random.choice(adj)
-    # Ensures different adjectives are selected
+    # Pull three different verbs
+    v1 = random.choice(verb)
+    v2 = random.choice(verb)
+    v3 = random.choice(verb)
+    while v1 == v2:
+        v2 = random.choice(verb)
+    while v1 == v3 or v2 == v3:
+        v3 = random.choice(verb)
+
+    # Pull three different adjectives
+    adj1 = random.choice(adjective)
+    adj2 = random.choice(adjective)
+    adj3 = random.choice(adjective)
     while adj1 == adj2:
-        adj2 = random.choice(adj)
-    while adj3 == adj1 or adj2:
-        adj3 == random.choice(adj)
+        adj2 = random.choice(adjective)
+    while adj1 == adj3 or adj2 == adj3:
+        adj3 = random.choice(adjective)
 
-    # Chooses 2 different prepositions
-    prep1 = random.choice(prep)
-    prep2 = random.choice(prep)
+    # Pull two different prepositions
+    prep1 = random.choice(preposition)
+    prep2 = random.choice(preposition)
     while prep1 == prep2:
-        prep2 = random.choice(prep)
+        prep2 = random.choice(preposition)
 
-    # Choose 1 adverb
-    adv1 = random.choice(adv)
+    # Pull one adverb
+    adv1 = random.choice(adverb)
 
-    # Chooses appropriate article
     if "aeiou".find(adj1[0]) != -1:  # First letter is a vowel
         article = "An"
     else:
@@ -89,13 +127,14 @@ def poem_creator():
 
     # Create the poem
     poem = (
-        f"{article} {adj1} {noun1}\n\n"
-        f"{article} {adj1} {noun1} {verb1} {prep1} the {adj2} {noun2}\n"
-        f"{adv1}, the {noun1} {verb2}\n"
-        f"the {noun2} {verb3} {prep2} a {adj3} {noun3}"
+        f"{article} {adj1} {n1}.\n\n"
+        f"{article} {adj1} {n1} {v1} {prep1} the {adj2} {n2}.\n"
+        f"{adv1}, the {n1} {v2}.\n"
+        f"the {n2} {v3} {prep2} a {adj3} {n3}."
     )
 
     return poem
 
-poem = poem_creator()
+
+poem = make_poem()
 print(poem)
